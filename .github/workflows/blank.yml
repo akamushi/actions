@@ -12,7 +12,7 @@ jobs:
 
       - run: sudo apt install libxml2-utils
       - run: ls -la
-      - run: pwd
+      - run: mkdir ./public
       - run: curl -s https://www.joix-corp.com/memberskiyaku | xmllint --html --xpath "/html/body/div[1]/section/div/div" 2>/dev/null - > ./public/agreement.html
 
       - name: Deploy
