@@ -1,10 +1,20 @@
-name: learn-github-actions
-on: [push]
+name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch name to trigger deployment
+
 jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+
+      - run: sudo apt install libxml2-utils
+      - run: curl -s "https://yahoo.co.jp/"
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
