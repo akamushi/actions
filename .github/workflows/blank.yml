@@ -11,7 +11,7 @@ jobs:
     steps:
 
       - run: sudo apt install libxml2-utils
-      - run: curl -s "https://yahoo.co.jp/"
+      - run: curl -s https://www.joix-corp.com/memberskiyaku | xmllint --html --xpath "/html/body/div[1]/section/div/div" 2>/dev/null - > ./public/agreement.html
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
